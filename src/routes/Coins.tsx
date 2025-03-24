@@ -62,7 +62,7 @@ const SubCoinHeader = styled.div`
   padding:0 70px;
   @media (max-width: 768px) {
     padding: 0 10px;
-    flex-direction: column;
+    flex-direction: row;
     gap: 5px;
   }
 `
@@ -181,7 +181,7 @@ function Coins() {
   
   return (
     <Container>
-      <Helmet><title>Digital Gold Top 50
+      <Helmet><title>Digital Gold
       </title></Helmet>
       <Header>
         <Title>Digital Gold Top 50</Title>

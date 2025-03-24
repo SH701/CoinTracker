@@ -32,7 +32,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage":"https://sh701.github.io/CoinTracker",
+  "homepage": "https://sh701.github.io/CoinTracker",
   "eslintConfig": {
     "extends": [
       "react-app",
