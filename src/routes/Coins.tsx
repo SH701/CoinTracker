@@ -70,6 +70,9 @@ const Title = styled.h1`
   font-weight:bold;
   font-size: 48px;
   color:${(props)=>props.theme.accentColor};
+  @media (max-width:768px){
+    font-size: 30px;
+  }
 `;
 const Loader = styled.span`
   text-align: center;

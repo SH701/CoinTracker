@@ -119,6 +119,9 @@ import { Helmet } from "react-helmet";
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    @media (max-width:768px) {
+      margin-top: 20px;
+    }
   `;
   const OverviewItem = styled.div`
     font-weight: bold;
