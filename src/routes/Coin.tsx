@@ -92,6 +92,7 @@ import { Helmet } from "react-helmet";
     padding: 0px 20px;
     max-width: 480px;
     margin: 0 auto;
+    margin-top: 20px;
   `;
   const Header = styled.header`
     height: 10vh;

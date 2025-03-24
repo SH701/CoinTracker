@@ -18,16 +18,21 @@ const Title = styled.h1`
 
 const P = styled.p`
   font-weight: bold;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 `;
 interface PriceData {
-  time_open: number;
-  time_close: number;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
+  id:string;
+  name:string;
+  quotes:{
+    USD:{
+      price:number;
+      volume_24h:number;
+      percent_change_24h: number;
+      percent_change_7d: number;
+      percent_change_30d: number;
+      ath_price:number;
+    }
+  }
 }
 
 interface CoinProps {
@@ -43,35 +48,57 @@ function Price({ coinId }: CoinProps) {
 
   console.log("Fetched Data:", data);
 
-  const latestData = Array.isArray(data) && data.length > 0 ? data[0] : null;
-  const previousData = Array.isArray(data) && data.length > 1 ? data[1] : null;
-  const priceChange = latestData?.close && previousData?.close
-  ? latestData.close - previousData.close
-  : 0;
-  const priceChangePercent = previousData
-    ? ((priceChange / previousData.close) * 100).toFixed(2)
-    : "N/A";
-  const changeColor = priceChange >= 0 ? "green" : "red";
-  const changeSymbol = priceChange >= 0 ? "▲" : "▼";
+  const latestData=data?.[0];
+  const usdInfo = latestData?.quotes?.USD;
+  const price = usdInfo?.price ?? 0;
+  const athprice = usdInfo?.ath_price ?? 0;
+
+  const change24h = usdInfo?.percent_change_24h ?? 0;
+  const isUp24h = change24h >= 0;
+  const symbol24h = isUp24h ? "▲" : "▼";
+  const color24h = isUp24h ? "green" : "red";
+
+  const change7d = usdInfo?.percent_change_7d ?? 0;
+  const isUp7d = change7d >= 0;
+  const symbol7d = isUp7d ? "▲" : "▼";
+  const color7d = isUp7d ? "green" : "red";
+
+  const change30d = usdInfo?.percent_change_30d ?? 0;
+  const isUp30d = change30d >= 0;
+  const symbol30d = isUp30d ? "▲" : "▼";
+  const color30d = isUp30d ? "green" : "red";
 
   return (
     <Box>
-      <Title>${coinId} Price 💰</Title>
+      <Title>Price 💰</Title>
       {isLoading ? (
         <p>Loading Price...</p>
       ) : latestData ? (
-        <div>
-          <P>🔹 Open: ${Number(latestData.open).toFixed(2)}</P>
-          <P>🔹 High: ${Number(latestData.high).toFixed(2)}</P>
-          <P>🔹 Low: ${Number(latestData.low).toFixed(2)}</P>
-          <P>🔹 Close: ${Number(latestData.close).toFixed(2)}</P>
-          <P>🔹 24h Volume: {Number(latestData.volume).toLocaleString()}</P>
-          {previousData && (
-            <p style={{ color: changeColor }}>
-              {changeSymbol} {priceChangePercent}% (${priceChange.toFixed(2)})
-            </p>
-          )}
-        </div>
+        <><div>
+            <P>🔹 Current Price : ${price.toLocaleString()}</P>
+            <P>🔹 Ath Price : ${athprice.toLocaleString()}</P>
+          </div>
+          <div>
+          <P>
+           🔹 24h :{" "}
+            <span style={{ color: color24h }}>
+              {symbol24h} {change24h.toFixed(2)}%
+            </span>
+          </P>
+          <P>
+          🔹 7d :{" "}
+            <span style={{ color: color7d }}>
+              {symbol7d} {change7d.toFixed(2)}%
+            </span>
+          </P>
+          <P>
+          🔹 30d :{" "}
+            <span style={{ color: color30d }}>
+              {symbol30d} {change30d.toFixed(2)}%
+            </span>
+          </P>
+          </div>
+          </>
       ) : (
         <p>No Data Available</p>
       )}

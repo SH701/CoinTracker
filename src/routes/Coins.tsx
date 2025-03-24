@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable react-hooks/rules-of-hooks */
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useQueries, useQuery } from "@tanstack/react-query";
@@ -25,6 +23,10 @@ const Container = styled.div`
   max-width: 600px;
   margin: 0 auto;
   margin-top: 20px;
+  @media (max-width:768px) {
+    padding: 0 10px;
+    max-width: 100%;
+  }
   
 `;
 const Header = styled.header`
@@ -32,6 +34,7 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `;
 const CoinsList = styled.ul`
   margin-top:20px;
@@ -46,12 +49,22 @@ const CoinHeader = styled.div`
   background-color: ${(props)=>props.theme.boxColor};
   border-radius: 24px 24px 4px 4px;
   border-bottom: 1px solid rgba(169, 159, 159, 0.284);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px 15px;
+    text-align: center;
+  }
 `;
 const SubCoinHeader = styled.div`
   display: flex;
   justify-content: space-between;
   flex: 1;
   padding:0 70px;
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    flex-direction: column;
+    gap: 5px;
+  }
 `
 const Title = styled.h1`
   font-weight:600;
@@ -91,6 +104,11 @@ const Np = styled.div`
   width: 100%;
   justify-content: space-between;
   gap:80px;
+  @media (max-width: 768px) {
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const CoinInfo = styled.div`
@@ -121,6 +139,9 @@ const Price = styled.span`
   font-weight: bold;
   text-align: right;
   flex: 1;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Change = styled.span<Changeprops>`
@@ -131,8 +152,12 @@ const Change = styled.span<Changeprops>`
   background-color: ${(props) => (props.change > 0 ? "#16c784" : "#ea3943")};
   text-align: right;
   flex: 0.5;
-  max-width: 60px;  /* 최소 크기 지정 */
+  max-width: 60px;  
   width: auto;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    max-width: none;
+  }
 `;
 
 
