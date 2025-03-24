@@ -67,7 +67,7 @@ const SubCoinHeader = styled.div`
   }
 `
 const Title = styled.h1`
-  font-weight:600;
+  font-weight:bold;
   font-size: 48px;
   color:${(props)=>props.theme.accentColor};
 `;
