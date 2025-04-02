@@ -30,6 +30,7 @@
 
 ## 📁 프로젝트 구조
 
+---
 - CoinTracker/
   ├── public/                         # 정적 파일 (favicon, index.html 등)
   │   ├── index.html                  # 기본 HTML 템플릿
@@ -57,6 +58,7 @@
   ├── package-lock.json              # 의존성 버전 잠금 파일
   ├── tsconfig.json                  # TypeScript 컴파일 설정
   └── README.md                      # 프로젝트 설명 문서
+---
 
 ```markdown
 - `public/`: 정적 파일과 HTML 템플릿을 포함하는 폴더
