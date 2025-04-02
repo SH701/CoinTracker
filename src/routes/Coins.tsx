@@ -50,10 +50,11 @@ const CoinHeader = styled.div`
   border-radius: 24px 24px 4px 4px;
   border-bottom: 1px solid rgba(169, 159, 159, 0.284);
   @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 10px 15px;
+    flex-direction: row;
+    padding: 10px 30px;
     text-align: center;
   }
+  
 `;
 const SubCoinHeader = styled.div`
   display: flex;
@@ -61,9 +62,8 @@ const SubCoinHeader = styled.div`
   flex: 1;
   padding:0 70px;
   @media (max-width: 768px) {
-    padding: 0 10px;
+    padding:0 40px;
     flex-direction: row;
-    gap: 5px;
   }
 `
 const Title = styled.h1`
@@ -99,6 +99,7 @@ const Linked = styled(Link)`
   display: flex;
   align-items: center;
   width: 100%;
+
 `;
 
 const Np = styled.div`
@@ -109,7 +110,7 @@ const Np = styled.div`
   gap:80px;
   @media (max-width: 768px) {
     gap: 10px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 `;
@@ -119,13 +120,17 @@ const CoinInfo = styled.div`
   align-items: center;
   gap: 5px;
   padding-left: 40px;
+  @media (max-width: 768px) {
+    padding: 0px 15px;
+    text-align: center;
+  }
 `;
 
 const Rank = styled.span`
   font-size: 18px;
   font-weight: 600;
-  width: 30px; /* 랭크 숫자 정렬 */
-`;
+  width: 30px;
+`
 
 const Img = styled.img`
   width: 30px;
@@ -135,6 +140,9 @@ const Img = styled.img`
 const CoinName = styled.span`
   font-size: 18px;
   font-weight: 600;
+  @media (max-width:768px) {
+    font-size: 14px;
+  }
 `;
 
 const Price = styled.span`
@@ -144,8 +152,8 @@ const Price = styled.span`
   flex: 1;
   @media (max-width: 768px) {
     font-size: 16px;
-  }
-`;
+    padding-right: 40px;}
+  `
 
 const Change = styled.span<Changeprops>`
   padding: 4px 8px;
@@ -159,7 +167,7 @@ const Change = styled.span<Changeprops>`
   width: auto;
   @media (max-width: 768px) {
     font-size: 14px;
-    max-width: none;
+    min-width: 20%;
   }
 `;
 

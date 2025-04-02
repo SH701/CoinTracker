@@ -86,12 +86,22 @@ const Btn = styled.button`
   &:hover {
     opacity: 0.8;
   }
+  @media (max-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 `
 const Hbtn = styled(Btn)`
   left: 40px;
+  @media (max-width: 768px){
+    left:20px;
+  }
 `
 const Mbtn = styled(Btn)`
   right:40px;
+  @media (max-width: 768px){
+    right:20px;
+  }
 `
 
 
